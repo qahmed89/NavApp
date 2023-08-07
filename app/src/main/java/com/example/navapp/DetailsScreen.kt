@@ -12,7 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.parcelize.Parcelize
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -25,7 +27,7 @@ fun DetailsScreen(detailsModel: DetailsModel) {
                 .padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = detailsModel.text)
+            Text(text = detailsModel.text, fontSize = 25.sp , color = Color.Red)
             Spacer(modifier = Modifier.height(50.dp))
 
         }

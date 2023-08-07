@@ -31,7 +31,7 @@ fun HomeScreen(navController : NavController) {
             Text(text = "Hello World")
             Spacer(modifier = Modifier.height(50.dp))
             Button(onClick = {
-                val detailsModel = DetailsModel(text = "Hello World")
+                val detailsModel = DetailsModel(text = "Hello World from Android")
                 val detailsAsJsonString = Uri.encode(Gson().toJson(detailsModel))
                 navController.navigate("details/$detailsAsJsonString")
             }) {
