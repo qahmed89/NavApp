@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -19,16 +22,18 @@ import kotlinx.parcelize.Parcelize
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsScreen(detailsModel: DetailsModel) {
+fun DetailsScreen(detailsModel: ListDetailsModel) {
     Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = detailsModel.text, fontSize = 25.sp , color = Color.Red)
-            Spacer(modifier = Modifier.height(50.dp))
+            items(detailsModel.list) {
+                Text(text = it.text, fontSize = 25.sp, color = Color.Red)
+                Spacer(modifier = Modifier.height(50.dp))
+            }
 
         }
     }
@@ -37,5 +42,11 @@ fun DetailsScreen(detailsModel: DetailsModel) {
 
 @Parcelize
 data class DetailsModel(
-    val text: String
+    val text: String,
+
+) : Parcelable
+
+@Parcelize
+data class ListDetailsModel(
+    val list: List<DetailsModel>
 ) : Parcelable

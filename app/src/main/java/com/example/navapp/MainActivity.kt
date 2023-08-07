@@ -47,8 +47,8 @@ class MainActivity : ComponentActivity() {
                             }
                         )) {
                             val arg = it.arguments?.getString("data")
-                            val detailsModel: DetailsModel =
-                                Gson().fromJson(arg, DetailsModel::class.java)
+                            val detailsModel: ListDetailsModel =
+                                Gson().fromJson(arg, ListDetailsModel::class.java)
                             DetailsScreen(detailsModel = detailsModel)
                         }
                     }
